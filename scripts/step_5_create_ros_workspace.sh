@@ -16,7 +16,7 @@
 
 #-----------------------------------------------
 # Feel free to modify the destination path for the ROS workspace:
-WORKSPACE=~/ros/catkin_ws
+WORKSPACE=~/catkin_ws
 
 # Or if you prefer to create the workspace from the location of the
 # script, you can uncomment the following lines:
@@ -66,11 +66,11 @@ wstool set -t src mavros --git https://github.com/alexbuyval/mavros.git
 wstool update -t src
 # Instead of getting raw source code for Mavros, it is possible
 # to download precompiled binaries with this command:
-#   sudo apt-get install ros-indigo-mavros ros-indigo-mavros-extras
+#   sudo apt-get install ros-kinetic-mavros ros-kinetic-mavros-extras
 
 # Checks any missing dependency
 echo "Checking for missing dependencies:"
-rosdep install --from-paths src --ignore-src --rosdistro indigo -y
+rosdep install --from-paths src --ignore-src --rosdistro kinetic -y
 # It may throw an error of missing dependency on [gflags_catkin] for
 # package "glog_catkin", but this error does not seem to disrupt the
 # compilation (catkin_make).

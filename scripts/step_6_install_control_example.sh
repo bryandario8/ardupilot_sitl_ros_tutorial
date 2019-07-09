@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-sudo apt-get install ros-indigo-ar-track-alvar
+sudo apt-get install ros-kinetic-ar-track-alvar
 
 roscd
 cd ../src #Navigate in your ROS user source files directory

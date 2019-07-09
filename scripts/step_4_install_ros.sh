@@ -9,7 +9,7 @@
 #    This script comes largely from:
 #      https://pixhawk.org/dev/ros/sitl
 #    With some commands inspired from:
-#      http://wiki.ros.org/indigo/Installation/Ubuntu
+#      http://wiki.ros.org/kinetic/Installation/Ubuntu
 #      http://gazebosim.org/tutorials?tut=drcsim_install
 #      http://dev.ardupilot.com/wiki/using-rosgazebo-simulator-with-sitl/
 #----------------------------------------------------------
@@ -36,7 +36,7 @@ export DEBIAN_FRONTEND=noninteractive
 ## add ROS repository and key
 ## install main ROS pacakges
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net --recv-key 0xB01FA116
+sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
 #wget https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -O - | sudo apt-key add -
 sudo apt-get update
 
@@ -45,21 +45,21 @@ sudo apt-get update
 # for it sometimes messes up the ubuntu installation.
 #   sudo apt-get -y install libgl1-mesa-dev-lts-utopic
 
-sudo apt-get -y install ros-indigo-desktop-full
+sudo apt-get -y install ros-kinetic-desktop-full
 
 sudo rosdep init
 rosdep update
 
 ## setup environment variables
-sudo sh -c 'echo "source /opt/ros/indigo/setup.bash" >> ~/.bashrc'
+sudo sh -c 'echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc'
 source ~/.bashrc
 
 ## get rosinstall and some additional dependencies
 sudo apt-get -y install python-rosinstall          \
-                        ros-indigo-octomap-msgs    \
-                        ros-indigo-joy             \
-                        ros-indigo-geodesy         \
-                        ros-indigo-octomap-ros     \
+                        ros-kinetic-octomap-msgs    \
+                        ros-kinetic-joy             \
+                        ros-kinetic-geodesy         \
+                        ros-kinetic-octomap-ros     \
                         unzip
 			
 
@@ -73,8 +73,8 @@ sudo apt-get -y install drcsim
 ## install mavros but from shadow repo to get latest version earlier
 sudo sh -c 'echo "deb http://packages.ros.org/ros-shadow-fixed/ubuntu/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-shadow.list'
 sudo apt-get update
-sudo apt-get -y install ros-indigo-mavros \
-                        ros-indigo-mavros-extras
+sudo apt-get -y install ros-kinetic-mavros \
+                        ros-kinetic-mavros-extras
 
 RED='\033[0;32m'
 NC='\033[0m' # No Color
